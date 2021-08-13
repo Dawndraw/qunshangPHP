@@ -50,6 +50,9 @@
 [47、更新合伙人表](#47通过uid插入合伙人表新信息)<br/>
 [48、会员费合伙人收益](#48通过uid和订单项id计算合伙人收益并且创建会员用户信息)<br/>
 [49、摇钱树（新）](#49通过uid获得今天，昨天，本周，上月，本月数据)<br/>
+[50、获取商品列表](#50通过type获得不同状态的商品列表)<br/>
+[51、获取sku详情](#51通过type和id获得sku详情)<br/>
+[52、搜索商品](#51通过type和id或time搜索商品)<br/>
 
 
 ## 1、根据手机密码身份插入注册
@@ -2070,3 +2073,127 @@
 	        }
 	    }
 	]
+## 50、通过type获得不同状态的商品列表
+### 请求URL：
+http://www.equnshang.com/ProductController/getProductList.php
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选     |类型        |说明
+    	|type         |Y           |String      |商品状态
+
+### 返回示例： 
+		[
+	    {
+	       id	10
+	       posterUrl	"http://api.equnshang.com/tp/public/product/10/1.jpg"
+	       name		"马鞭草酮迷迭香纯露"
+	       createTime	"2021-06-21 12:22:47"
+	       status		1
+	    },
+	    {
+	        id	9
+		posterUrl	"http://api.equnshang.com/tp/public/product/9/1.jpg"
+		name		"大马士革玫瑰纯露"
+		createTime	"2021-06-21 12:22:47"
+		status		1
+	    },
+	    {
+	        id	8
+		posterUrl	"http://api.equnshang.com/tp/public/prize/1/1_1.jpg"
+		name		"古龙贡米"
+		createTime	"2021-06-21 12:22:47"
+		status		0
+	    },
+	    {
+	       id	7
+		posterUrl	"http://api.equnshang.com/tp/public/product/7/banner_1.jpg"
+		name		"养心·富贵 青汁粉末（蔬菜粉）"
+		createTime	"2021-06-21 12:22:47"
+		status		1
+	    },
+	    {
+	       id	3
+		posterUrl	"http://api.equnshang.com/tp/public/product/3/1_1.jpg"
+		name		"五涟冷矿泉 好矿泉不止有点“咸”地之生机 孕育自然冷矿泉 回归自然清凉 360ml"
+		createTime	"2021-05-13 12:14:40"
+		status		1
+	    },
+	    {
+	       id	2
+		posterUrl	"http://api.equnshang.com/tp/public/product/2/poster_url_new.png"
+		name		"高级信息服务"
+		createTime	"2021-05-27 18:14:05"
+		status		1
+	    },
+	    {
+	       id	1
+		posterUrl	"http://api.equnshang.com/tp/public/product/1/poster_url_new.png"
+		name		"一般信息服务（一年）"
+		createTime	"2021-05-27 18:14:05"
+		status		1
+	    }
+	]
+## 51、通过type和id获得sku详情
+### 请求URL：
+http://www.equnshang.com/ProductController/getSku.php
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选     |类型        |说明
+    	|type         |Y           |String      |商品状态
+	|id         |Y           |String      |商品id
+
+### 返回示例： 
+	   [
+      {
+	vipNormalPrice	"21.0000"
+	fanNormalPrice	"56.0000"
+	code		"66666"
+	purchasePrice	"14.0000"
+	vipGroupPrice	"17.5000"
+	stock		99999
+	lowStock	0
+	规格	      "1袋"
+	threshold	100000
+	targetNumber	100
+	   }
+      ]
+## 52、通过type和id或time搜索商品
+### 请求URL：
+http://www.equnshang.com/ProductController/getQueryList.php
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选     |类型        |说明
+    	|type         |Y           |String      |商品状态
+	|id         |N           |String      |商品id
+	|time         |N           |String      |添加时间
+
+### 返回示例： 
+	   [
+      {
+	id		9
+	posterUrl	"http://api.equnshang.com/tp/public/product/9/1.jpg"
+	name		"大马士革玫瑰纯露"
+	createTime	"2021-06-21 12:22:47"
+	status		"上架"
+	   }
+      ]	
+	
+	
